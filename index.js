@@ -13,6 +13,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
+
+// "/" route for Hello
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
+// API routes
 app.use("/api", contactRoutes);
 
 app.listen(PORT, () => {
