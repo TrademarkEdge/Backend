@@ -12,7 +12,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Routes
+// Log every request
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} route hit`);
+  next();
+});
 
 // "/" route for Hello
 app.get("/", (req, res) => {
